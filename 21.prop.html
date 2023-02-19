@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btnCheck">check</button>
+    <button class="btnChange"> change</button>
+
+    <input type="checkbox" >
+    <p></p>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+    
+       $('.btnCheck').click(function(){
+        console.log('checked?' , $('input').attr('checked'))
+        console.log('prop checked?' , $('input').prop('checked'))
+       })
+
+       $('.btnChange').click(function(){
+        // 設計一個變數 來抓目前的布林值(true/fales)
+        const nowvalue= $('input').prop('checked')
+        // 把布林值改成相反值 "!""
+        $('input').prop('checked', !nowvalue );
+
+        
+        const text =$('input').prop('checked')
+        $('p').text('now value=' +text)
+
+       })
+       
+      
+      
+      
+    </script>
+
+</body>
+</html>

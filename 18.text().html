@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color:pink
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="get_text">get text</button>
+    <button class="get_html">get html</button>
+    <button class="get_html_to_text">get html to text</button>
+
+    <p class="sample">hello <span>world</span></p>
+    <p class="resault"></p>
+    <p class="test"></p>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        $('.get_text').click(function(){
+            const text=$('.sample').text()
+            $('.resault').text(text)
+        })
+
+        $('.get_html').click(function(){
+            const html=$('.sample').html()
+            $('.resault').html(html)
+        })
+        
+        $('.get_html_to_text').click(function(){
+            const html=$('.sample').html()
+            $('.resault').text(html)
+        })
+
+        var x= 1+1
+
+        $('.test').text(x)
+        // text 可以放變數
+
+    </script>
+</body>
+</html>

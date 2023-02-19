@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .box-red{
+            background-color: red;
+            opacity: 0;
+        }
+        .box-orange{
+            background-color: orange;
+            opacity: 0;
+        }
+        .box-yellow{
+            background-color: yellow;
+            opacity: 0;
+        }
+        .box-green{
+            background-color: green;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox">
+        <div class="box box-red"></div>
+    </div>
+    <div>
+        <input type="checkbox">
+        <div class="box box-orange"></div>
+    </div>
+    <div>
+        <input type="checkbox">
+        <div class="box box-yellow"></div>
+    </div>
+    <div>
+        <input type="checkbox">
+        <div class="box box-green"></div>
+    </div>
+
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+
+
+        $('input').click(function(e){
+
+            // if(true/fales) 
+            // 如果為true 就執行if{}內的功能
+            // 如果為fales 就執行else{}內的功能
+
+            if($(e.target).prop('checked')){
+                $(e.target).next().css('opacity','1')
+            }
+            else{
+                $(e.target).next().css('opacity','0')
+            }
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        img{
+            width: 100%;
+        }
+        .container{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col ">
+                <img class="show" src="" data-number="1" alt="">
+            </div>
+        </div>
+        <div class="row  ">
+            <div class="col-1">
+                <div class="left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="col-10 menu d-flex">
+                <div class="product_pic">
+                    <img src="./images/product1.jpg" data-number="1" alt="">
+                </div>
+                <div class="product_pic">
+                    <img src="./images/product2.jpg"  data-number="2" alt="">
+                </div>
+                <div class="product_pic">
+                    <img src="./images/product3.jpg" data-number="3" alt="">
+                </div>
+                <div class="product_pic">
+                    <img src="./images/product4.jpg" data-number="4" alt="">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        // 1.綁定五張IMG的click事件
+        $('.menu').click(img_change)
+
+        function img_change(e){
+            // console.log('e.target =',e.target)
+
+            // 2.拿到e.target圖片的src
+            // console.log('src',$(e.target).attr('src'));
+            // const src=$(e.target).attr('src');
+
+            // 3.拿e.target圖片的src 去改.show的src
+            // $('.show').attr('src',src )
+
+            // 抓到e.target的新data-number
+            // const datanumber=$(e.target).attr('data-number');
+            // 把.show的data-number改成e.target新的data-number
+            // $('.show').attr('data-number',datanumber )
+
+            // *** .show 裡面有兩個"attr" src ,data-number，兩個都要更新成e.target的attr
+
+            console.log(Array.from($('.menu img')).indexOf(e.target))
+            const current_img_index = Array.from($('.menu img')).indexOf(e.target)
+            const newsrc = $($('.menu img')[current_img_index]).attr('src')
+            $('.show').attr('src',newsrc )
+        }
+        
+        // var dataIndex = $('.product_pic').index()
+        
+       
+        function showpic (){
+            $('.show').attr('src',$($('.menu img')[0]).attr('src'))
+        }
+        showpic()
+        
+        $('.left').click(goleft)
+
+        // function goleft(){
+
+        //     const i=parseInt($('.show').attr('data-number'))
+
+        //     var target_data_number = parseInt($('.show').attr('data-number')) -1
+        //     var imgLength = $('.menu img').length
+
+        //     if (target_data_number < 1){
+        //         target_data_number += imgLength
+        //     }
+
+        //     const newsrc=$('[data-number= '+ target_data_number +']').attr('src')
+
+        //     $('.show').attr('src',newsrc )
+        //     $('.show').attr('data-number',target_data_number )
+        //     // $('.show').attr('data-number',i-1 )
+        // }
+
+        function goleft(){
+
+
+            const i=parseInt($('.show').attr('data-number'))
+
+            var target_data_number = parseInt($('.show').attr('data-number')) -1
+            var imgLength = $('.menu img').length
+
+            if (target_data_number < 1){
+                target_data_number += imgLength
+            }
+
+            // console.log($('.menu img')[0])
+
+            const newsrc=$('[data-number= '+ target_data_number +']').attr('src')
+
+            $('.show').attr('src',newsrc )
+            $('.show').attr('data-number',target_data_number )
+            // $('.show').attr('data-number',i-1 )
+            }
+
+        $('.right').click(goright)
+        function goright(){
+            const i=parseInt($('.show').attr('data-number'))
+
+            var target_data_number = parseInt($('.show').attr('data-number')) +1
+            var imgLength = $('.menu img').length
+
+            if (target_data_number > 4){
+                target_data_number -= imgLength
+            }
+
+            const newsrc=$('[data-number='+ target_data_number +']').attr('src')
+
+            $('.show').attr('src',newsrc )
+            $('.show').attr('data-number',target_data_number )
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button>reset</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        $('img').click(flipCard)
+
+        var first_click = false
+        var first_card_src = ''
+        var first_card = ''
+
+
+        function flipCard(e){
+            // console.log('e.target' , e.target)
+            
+            // console.log('array' , Array.from($('.col img')))
+
+            var current_index =  Array.from($('.col img')).indexOf(e.target)
+            // console.log('current_index=' ,current_index)
+
+            
+            // 卡牌翻面
+            if($(e.target).attr('src') == './images/eva-back.png'){
+                if(current_index == 0 || current_index == 2){
+                    $(e.target).attr('src' , './images/eva00.jpg')
+                    
+                }else {
+                    $(e.target).attr('src' , './images/eva01.jpg')
+                    
+                }
+            }else{
+                $(e.target).attr('src','./images/eva-back.png')
+            }
+
+            first_click = !first_click
+
+            // 取得第一次翻卡的src 跟卡片img
+            if (first_click){
+                first_card = $(e.target)
+                first_card_src = $(e.target).attr('src')
+                console.log('first_card_src' , first_card_src)
+
+             //第二次翻卡 判斷是否跟第一張卡片相同src 
+            }else{
+                // sleep(3000)
+                if($(e.target).attr('src') == first_card_src){
+                    console.log('1111111')
+                    $(e.target).css('display', 'none')
+                    $(first_card).css('display', 'none')
+
+                }else{
+                    console.log('3333')
+                    $(e.target).attr('src','./images/eva-back.png')
+                    $(first_card).attr('src','./images/eva-back.png')
+                }
+
+                
+            }
+            
+        } 
+
+        $('button').click(reset)
+        function reset(){
+            $('.col img').css('display' , 'block')
+            $('.col img').attr('src', './images/eva-back.png')
+        }
+
+        function sleep(ms) {
+            var time = new Date().getTime();
+            while (new Date().getTime() < time + ms){};
+        }
+
+    </script>
+
+</body>
+</html>

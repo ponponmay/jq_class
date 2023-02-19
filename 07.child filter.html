@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p>first p</p>
+            <div class="box">box01</div>
+            <div class="box">box02</div>
+            <div class="box">box03</div>
+            <p>second p</p>
+            <div class="box">box04</div>
+            <div class="box">box05</div>
+            <div class="box">box06</div>
+        </div>
+    </div>
+
+    <section class="container">
+        <div class="row">
+            <a class="box1">box01</a>
+            <a class="box1">box02</a>
+            <a class="box1">box03</a>
+            <a class="box1">box04</a>
+            <a class="box1">box05</a>
+            <a class="box1">box06</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <a class="box1">box01</a>
+            <a class="box1">box02</a>
+            <a class="box1">box03</a>
+            <a class="box1">box04</a>
+            <a class="box1">box05</a>
+            <a class="box1">box06</a>
+        </div>
+    </section>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+
+        $('.box1:first-child').css('background-color','pink');
+        // 需要同時符合.box1 又要是那一層的第一個小孩
+
+        $('.box1:last-child').css('background-color','lightblue');
+
+        // type是指div標籤 同時符合標籤+class
+        $('.box:first-of-type').css('background-color','yellow');
+        $('.box:last-of-type').css('background-color','green');
+        $('section:only-of-type').css('background-color','purple');
+
+        $('a:nth-child(3)').css('background-color','red');
+        $('.container:nth-last-of-type(1)').css('background-color','orange');
+
+
+    </script>
+
+
+
+</body>
+</html>

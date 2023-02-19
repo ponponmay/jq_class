@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="level-1">
+        <li class="item1">item-1</li>
+        <li class="item2">item-2
+            <ul class="level-2">
+                <li class="item01">item-01</li>
+                <li class="item02">item-02</li>
+                <ul class="level-3">
+                    <li class="item001">item-001</li>
+                    <li class="item002">item-002</li>
+                    <li class="item003">item-003</li>
+                </ul>
+                <li class="item03">item-03</li>
+            </ul>
+        </li>
+        <li class="item3">item-3</li>
+    </ul>
+
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        
+        $('.item001').siblings().css('border','solid 1px red')
+        $('.item001').parent().css('border','solid 1px blue').end().next().css('background-color','pink')
+    </script>
+</body>
+</html>

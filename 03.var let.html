@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 全域變數
+        // var x=10
+        console.log('全域',x)
+
+
+        // 區域變數
+
+        function add(){
+            // 如果宣告沒有寫var 那x=15會直接覆蓋全域
+            // x=15
+
+            // 有寫var x=15 這個變數只會在此funtion內套用
+            var x=15
+            console.log('區域的',x)
+        }
+
+        add()
+
+        let x=20
+        console.log('全域',x)
+
+    </script>
+</body>
+</html>
