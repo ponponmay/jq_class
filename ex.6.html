@@ -70,14 +70,7 @@
                 right: 0;
             }
 
-            .btnPrev,
-            .btnNext {
-                background: rgb(255, 221, 148);
-                border: 1px solid rgb(78, 78, 0);
-                border-radius: 20%;
-                aspect-ratio: 1/1;
-                width: 60%;
-            }
+            
         </style>
     </head>
 
@@ -112,10 +105,10 @@
             </ul>
 
             <div class="prevPageArea">
-                <button class="btnPrev">&lt;</button>
+                <button class="btnPrev btn btn-outline-light">&lt;</button>
             </div>
             <div class="nextPageArea">
-                <button class="btnNext">&gt;</button>
+                <button class="btnNext btn btn-outline-light">&gt;</button>
             </div>
         </div>
 
@@ -126,15 +119,19 @@
         ></script>
         <script>
             let page = 0
+          
 
             $('.slider-dots li').mouseenter(function (e){
             page = $(e.target).index()
                movePage()
                console.log('page ' ,page)
+               
            })
             
 
-            $('.nextPageArea').click(function(){
+            $('.nextPageArea').click(nextpage)
+
+            function nextpage(){
                 if(page<4){
                     page = page + 1
                     movePage()
@@ -143,7 +140,8 @@
                     page = page-4
                     movePage()
                 }
-            })
+                
+            }
 
             $('.prevPageArea').click(function(){
                 if(page > 0){
@@ -162,7 +160,13 @@
                 $('.img-wrap').css('transform', 'translateX(' + movement + 'px)' )
 
                 $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background' , 'transparent')
+                
             }
+
+         
+            setInterval(function(){
+                nextpage()
+            },3000)
 
         </script>
     </body>
