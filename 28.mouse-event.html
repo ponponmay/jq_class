@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .dot{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            /* 這個物件不要觸動事件 */
+            pointer-events: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="dot"></div>
+    </div>
+    
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        // $('.box').click(function(){
+        //     console.log('click' )
+        // }   
+        // )
+
+        // $('.box').dblclick(function(){
+        //     console.log('dblclick' )
+        // }
+            
+        // )
+        // $('.box').contextmenu(function(){
+        //     console.log('contextmenu' )
+        // }
+        // )
+        // $('.box').mousedown(function(){
+        //     console.log('mousedown' )
+        // }
+        // )
+        // $('.box').mouseup(function(){
+        //     console.log('mouseup' )
+        // }
+        // )
+        let  offsetX = null
+        let  offsetY = null
+        
+        // .box內所有人都會觸動事件，包含滑鼠碰到紅點，都會被引發
+        // 要避免滑鼠碰到紅點後會觸發，要在紅點的css加上pointer-events: none;
+        $('.box').mousemove(function(e){
+            console.log('e.offsetX', e.offsetX)
+
+            console.log('e.offsetY', e.offsetY)
+            offsetX = e.offsetX
+            offsetY = e.offsetY
+          
+            $('.dot').css('transform', `translate(${offsetX}px,${offsetY}px)`)
+          
+        }
+        )
+       
+
+    </script>
+
+
+
+
+</body>
+</html>
