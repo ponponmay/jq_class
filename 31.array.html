@@ -13,10 +13,21 @@
     <script>
         let test=['a', 'b' ,'c']
         let test2=[
-            ['0a','0b','0c'],
-            ['1a', '1b' ,'1c'],
-            ['2a', '2b','2c']
+            ['1/1','作者a','文章a'],
+            ['1/2', '作者b' ,'文章b'],
+            ['1/3', '作者c','文章c']
         ]
+
+        function addition(index){
+            console.log('addition i =' , index)
+            console.log(`第${index}筆資料，內容:${test2[index]}`)
+        }
+
+        for(let i=0 ; i< test2.length; i=i+1){
+            addition(i)
+        }
+
+        
     </script>
 </body>
 </html>

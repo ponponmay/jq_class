@@ -119,6 +119,7 @@
         ></script>
         <script>
             let page = 0
+            let timeRun = null
           
 
             $('.slider-dots li').mouseenter(function (e){
@@ -163,10 +164,47 @@
                 
             }
 
-         
-            setInterval(function(){
+            function startInterval(){
+                timeRun =setInterval(function(){
                 nextpage()
             },3000)
+            }
+            // 每次重新執行，都要重新宣告timeRun的值
+
+            startInterval()
+            
+
+            function stop(){
+                console.log('timeRun',timeRun);
+                clearInterval(timeRun);
+            }
+            
+            $('.slider-window').mouseenter(function(){
+                console.log('mouse enter')
+                stop()
+            })
+
+            $('.slider-window').mouseleave(function(){
+                console.log('mouse leave')
+                startInterval()
+            })
+
+            // setInterval 每次執行都會給予一次id值
+            // 代表timeRun這個值會一直改變
+            // -----------問題--------------
+            // 1.進到網站 執行timeRun 系統自動給予timeRun一個隨機id值(ex:1)
+            // 2.滑鼠進入 觸發stop功能 停止id=1的timeRun
+            // 3.滑鼠離開 觸發新的setInterval 系統給予新的timeRun id(2)
+            // 4.滑鼠進入 執行stop ，但是stop紀錄的是 停止timeRun(1)，但是目前是timeRun(2)在作用，所以stop無法成功
+            
+
+            // -----------解決方式-----------
+            // 每次重新啟動setInterval時，更新timeRun的值
+            // 讓stop可以抓到目前最新的timeRun id
+
+
+            
+
 
         </script>
     </body>

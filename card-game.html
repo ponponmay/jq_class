@@ -28,6 +28,18 @@
             <div class="col">
                 <img src="./images/eva-back.png" alt="">
             </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
+            <div class="col">
+                <img src="./images/eva-back.png" alt="">
+            </div>
         </div>
         <div class="row">
             <div class="col">
@@ -42,57 +54,69 @@
     <script>
         $('img').click(flipCard)
 
-        var first_click = false
-        var first_card_src = ''
-        var first_card = ''
-
+        let first_click = false
+        let first_card_src = ''
+        let first_card = ''
+        let isTwo = true
 
         function flipCard(e){
-            // console.log('e.target' , e.target)
-            
-            // console.log('array' , Array.from($('.col img')))
+            if(isTwo){
+                // isTwo 成立才能進來
+                // isTwo 第二次點卡牌就會改成fales，讓使用者不能點進來
+                // 要等setTimeout跑完才會恢復成true，使用者才可以再點進來
 
-            var current_index =  Array.from($('.col img')).indexOf(e.target)
-            // console.log('current_index=' ,current_index)
+                // console.log('e.target' , e.target)
+                
+                // console.log('array' , Array.from($('.col img')))
 
-            
-            // 卡牌翻面
-            if($(e.target).attr('src') == './images/eva-back.png'){
-                if(current_index == 0 || current_index == 2){
-                    $(e.target).attr('src' , './images/eva00.jpg')
-                    
-                }else {
-                    $(e.target).attr('src' , './images/eva01.jpg')
-                    
+                var current_index =  Array.from($('.col img')).indexOf(e.target)
+                // console.log('current_index=' ,current_index)
+
+                        
+                // 卡牌翻面
+                if($(e.target).attr('src') == './images/eva-back.png'){
+                    if(current_index == 0 || current_index == 2){
+                        $(e.target).attr('src' , './images/eva00.jpg')
+   
+                        }else if(current_index == 1 || current_index == 3){
+                         $(e.target).attr('src' , './images/eva01.jpg')
+                                
+                        }else if(current_index == 4 || current_index == 6){
+                            $(e.target).attr('src' , './images/eva02.jpg')
+                                
+                        }else if(current_index == 5 || current_index == 7){
+                            $(e.target).attr('src' , './images/eva06.jpg')     
+                        }
+                }else{
+                    $(e.target).attr('src','./images/eva-back.png')
                 }
-            }else{
-                $(e.target).attr('src','./images/eva-back.png')
-            }
 
-            first_click = !first_click
+                first_click = !first_click
 
-            // 取得第一次翻卡的src 跟卡片img
-            if (first_click){
-                first_card = $(e.target)
-                first_card_src = $(e.target).attr('src')
-                console.log('first_card_src' , first_card_src)
+                 // 取得第一次翻卡的src 跟卡片img
+                if (first_click){
+                    first_card = $(e.target)
+                    first_card_src = $(e.target).attr('src')
+                    // console.log('first_card_src' , first_card_src)
 
-             //第二次翻卡 判斷是否跟第一張卡片相同src 
-            }else{
-                setTimeout(function(){
-                    if($(e.target).attr('src') == first_card_src){
-                        console.log('1111111')
-                        $(e.target).css('display', 'none')
-                        $(first_card).css('display', 'none')
 
-                    }else{
-                        console.log('3333')
-                        $(e.target).attr('src','./images/eva-back.png')
-                        $(first_card).attr('src','./images/eva-back.png')
-                }} , 1000 )
-                
+                //第二次翻卡 判斷是否跟第一張卡片相同src 
+                }else{
+                    isTwo = false
+                    setTimeout(function(){
+                        isTwo=true
+                            if($(e.target).attr('src') == first_card_src){
+                                // console.log('1111111')
+                                $(e.target).css('display', 'none')
+                                $(first_card).css('display', 'none')
 
-                
+                            }else{
+                                console.log('3333')
+                                $(e.target).attr('src','./images/eva-back.png')
+                                $(first_card).attr('src','./images/eva-back.png')
+                            }
+                    } , 500 )         
+                }
             }
             
         } 

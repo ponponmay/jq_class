@@ -37,6 +37,40 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            // 1.先綁定事件
+            $('#city').change(function(){
+                console.log('city change')
+                // 2.抓到目前選取的城市
+                $('#city').val()
+                console.log('city val= ' , $('#city').val())
+                let current_city_index = $('#city').val()
+                let districtArray = [
+                    ['七堵', '中正', '暖暖'],
+                    ['中正', '大安', '信義'],
+                    ['蘆洲', '三重', '新店'],
+                 ];
+                // 2-2.選取陣列到現在的區 
+                console.log('current_district' ,districtArray[current_city_index])
+                let current_district = districtArray[current_city_index]
+
+                // 3.替換地區選項的html
+
+                for( i=0 ; i<3 ; i++){
+                    console.log('11111' ,current_district[i] )
+                    if(i==0){
+                        $('#district').empty()
+                        $('#district').append(`<option value="${i}">${current_district[i]}</option>`)
+                    }else{
+                        $('#district').append(`<option value="${i}">${current_district[i]}</option>`)  
+                    }
+                    
+                    
+            }
+                
+
+            })
+
+        </script>
     </body>
 </html>
