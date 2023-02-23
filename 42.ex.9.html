@@ -68,8 +68,8 @@
             crossorigin="anonymous"
         ></script>
         <script>
-            let left = parseInt($('.box').css('left'))
-            let top = parseInt($('.box').css('top'))
+            let left = null
+            let _top = null
             
             $('#right').click(function(){
 
@@ -78,8 +78,6 @@
                 if(left< 700){
                     $('.box').css('left', '+=100')
                 }
-                // left = parseInt($('.box').css('left'))
-                console.log(left)
             })
 
             $('#left').click(function(){
@@ -87,23 +85,20 @@
                 if(left> 0){
                     $('.box').css('left', '-=100')
                 }
-                console.log(left)
             })
 
             $('#up').click(function(){
-                top = parseInt($('.box').css('top'))
-                if(top>0){
+                _top = parseInt($('.box').css('top'))
+                if(_top>0){
                     $('.box').css('top', '-=100')
                 }
-                console.log(top)
             })
 
             $('#down').click(function(){
-                top = parseInt($('.box').css('top'))
-                if(top<300){
+                _top = parseInt($('.box').css('top'))
+                if(_top<300){
                     $('.box').css('top', '+=100')
                 }
-                console.log($('.box').css('top'))
             })
 
             $(document).keydown(function(e){
