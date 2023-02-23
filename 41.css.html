@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box , .size{
+            width: 200px;
+            height: 200px;
+            background-color: #faf;
+        }
+    </style>
+</head>
+<body>
+    <button id="get">get</button>
+    <button id="change">change</button>
+    <div class="box">bg color</div>
+    <div class="size">width size</div>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        let currentBg = null
+
+        $('#get').click(function(){
+            console.log($('.box').css('background-color'))
+        })
+        
+        $('#change').click(function(){
+            currentBg = $('.box').css('background-color')
+            // 進來再抓目前顏色，才能做比對
+            if(currentBg == 'rgb(255, 170, 255)'){
+                console.log('1111111111111')
+                $('.box').css('background-color','blue')
+            }else{
+                console.log('222222222222')
+                $('.box').css('background-color','#faf');
+            }
+        })
+
+        let dirction = '+'
+        $('.size').click(function(e){ 
+            
+            let boxwidth = parseInt($(e.target).css('width'))
+
+            if(dirction === '+' && boxwidth >= 300){
+                dirction = '-'
+            }
+
+            if(dirction === '-' && boxwidth <= 200){
+                dirction = '+'
+            }
+              
+            $(e.target).css('width' , `${dirction}=10`)
+            console.log(boxwidth)
+        })
+
+        
+        
+    </script>
+</body>
+</html>

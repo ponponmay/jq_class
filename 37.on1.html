@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>click</button>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        $('button').click(function(){
+            $('ul').append(`<li>item3</li>`)
+        })
+        // 監聽原本就在的父層
+        $('ul').on('click', 'li',function(e){
+            console.log($(e.target).text())
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accumulate</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #aaf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+
+    <script>
+
+        let direction = '+'
+        $('.box').click(function (e) {
+            const boxWidth = parseInt($(e.target).css('width'));
+
+            if (direction === '+' && boxWidth >= 300) {
+                direction = '-'
+            }
+
+            if (direction === '-' && boxWidth <= 200) {
+                direction = '+'
+            }
+
+            $(e.target).css('width', `${direction}=10`)
+
+            // if (direction === 'right') {
+            //     $(e.target).css('width', '+=10')
+            // }
+            // else {
+            //     $(e.target).css('width', '-=10')
+            // }
+
+            console.log('boxWidth', $(e.target).css('width'));
+
+        })
+
+    </script>
+</body>
+
+</html>

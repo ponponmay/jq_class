@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box box1">1</div>
+    </div>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+
+    <script>
+        $('.box').click(function (e) {
+            console.log('box target', e.target);
+            console.log('box currentTarget', e.currentTarget);
+        })
+
+        $('.wrap').click(function (e) {
+            console.log('wrap target', e.target);
+            console.log('wrap currentTarget', e.currentTarget);
+
+        })
+    </script>
+</body>
+
+</html>

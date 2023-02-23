@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid ;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="showAction"></div>
+
+    <button id="on">on</button>
+    <button id="off">off</button>
+    <button id="hi">hi</button>
+   
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+
+        // $(".box").on({
+        //     mouseenter: function(){
+        //         $("#showAction").text("Mouse Enter");
+        //     },
+        //     click: function(){
+        //         $("#showAction").text("Click");
+        //     },
+        //     dblclick: function(){
+        //         $("#showAction").text("Double Click");
+        //     }
+        // });
+
+
+        $('.box').on('click mouseenter mouseleave' , function(){
+            console.log('123')
+        })
+
+        // $('#on').on('click',function(){
+        //     $('#hi').on('click',function(){
+        //         console.log('hi')
+        //     });
+        // })
+
+        // $('#off').on('click',function(){
+        //     $('#hi').off('click',function(){
+        //         console.log('hi')
+        //     });
+        // })
+
+        // function(){console.log('hi')}
+        // 雖然是解除長相一樣的function 但沒有命名的話 他們就是不同人
+
+        function hi(){
+            console.log('hi')
+        }
+
+        $('#on').on('click',function(){
+            $('#hi').on('click', hi);
+        })
+
+        $('#off').on('click',function(){
+            $('#hi').off('click', hi);
+        })
+
+        
+
+    </script>
+</body>
+</html>
