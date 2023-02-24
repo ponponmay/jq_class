@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid ;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        console.log('Math.random',Math.random())
+        console.log('Math.random*100',Math.random()*100)
+        console.log('Math.round(Math.random*100)',Math.round(Math.random()*100))
+        console.log('Math.round(Math.random*100)+100',Math.round(Math.random()*100)+100)
+
+        const getRandomInt = Math.round(Math.random()*100)+100
+        console.log('getRandomInt',getRandomInt)
+        
+        $('.box').css('background',`linear-gradient(135deg, rgba(${getRandomInt},${getRandomInt},${getRandomInt},.5), 
+        rgba(${getRandomInt},${getRandomInt},${getRandomInt},.8)`)
+
+        // `linear-gradient(135deg, rgba(${getRandomInt},${getRandomInt},${getRandomInt},.5), 
+        // rgba(${getRandomInt},${getRandomInt},${getRandomInt},.8)`
+
+    </script>
+
+</body>
+</html>

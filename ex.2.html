@@ -40,23 +40,21 @@
         <script>
             function getRandomInt(max) {
                 return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+                // 3.每次重新隨機random一個數值，並且回報
             }
 
             function getRBGA() {
-                return `linear-gradient(135deg, rgba(${getRandomInt(
-                    256
-                )},${getRandomInt(256)},${getRandomInt(
-                    256
-                )},.5), rgba(${getRandomInt(256)},${getRandomInt(
-                    256
-                )},${getRandomInt(256)},.8)`;
+                return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), 
+                rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`;
             }
+            // 2.要去找getRandomInt(256)的變數，回去找function getRandomInt(max)，並且除了執行function getRandomInt(max)，還需要getRandomInt(max)的值，因此請function getRandomInt(max) 要return數值回來
 
             const elements = document.querySelectorAll('.autobg');
 
             Array.from(elements).forEach((element, index) => {
                 element.style.backgroundImage = getRBGA();
             });
+            // 1.把大家的backgroundImage 改成變數getRBGA()，getRBGA()是一個function ，除了執行function的動作外，還要回傳執行後的值
 
             // $('.autobg').each(function (index, currentElement) {
             //     currentElement.style.backgroundImage = getRBGA();

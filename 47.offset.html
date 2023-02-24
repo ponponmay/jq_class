@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            height: 300px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+    <div class="box"></div>
+    <section>5</section>
+    <section></section>
+    <section></section>
+    <section></section>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script>
+        console.log($('.box').offset())
+        console.log($('.box').offset().left)
+        console.log($('.box').offset().top)
+        $('.box').offset({
+            top:'50',
+            left:'100'})
+            
+        console.log($('.box').offset().left)
+        console.log($('.box').offset().top)
+
+    </script>
+</body>
+</html>

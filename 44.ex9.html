@@ -59,6 +59,7 @@
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script>
         // const boxLeft = parseInt($('.box').css('left'))
+        // 寫在外面她只會在第一次進入程式時讀取到，0，之後就一職是0
         $('#right').click(function () {
 
             const boxLeft = parseInt($('.box').css('left'))
@@ -67,7 +68,7 @@
                 $('.box').css('left', '+=100')
             }
 
-            console.log('box left:', $('.box').css('left'));
+            console.log('box left:', boxLeft);
         })
 
         $('#left').click(function () {
